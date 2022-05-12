@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * @author lihao
  *
- * 用户模块
+ * 管理员模块
  */
 @Controller
 @RequestMapping("admin")
@@ -54,5 +54,14 @@ public class AdminController {
 
         }
     }
-
+    /**
+     * 修改功能
+     * @param admin
+     * @return
+     */
+    @RequestMapping(value = "/update",method = RequestMethod.POST)
+    public String update(Admin admin,HttpSession session){
+        adminService.update(admin);
+        return "admin/admin_update";
+    }
 }

@@ -44,4 +44,9 @@ public class AdminServiceImpl implements AdminService {
 
         return vo;
     }
+    @Override
+    public Admin update(Admin admin) {
+        adminMapper.updateByPrimaryKey(admin);
+        return admin;
+    }
 }
