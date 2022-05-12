@@ -14,10 +14,10 @@ public class MenusServiceImpl implements MenusService {
     @Autowired
     private MenusMapper menusMapper;
 
+    //查询所有菜品信息
     @Override
-    public List<Menus> allmenus(MenusExample menusExample) {
-        List<Menus> menus = menusMapper.selectByExample(menusExample);
-        System.out.println(menus);
-        return menus;
+    public List<Menus> allmenus(Menus menus) {
+        List<Menus> menus1 = menusMapper.selectByExample(null);
+        return menus1;
     }
 }

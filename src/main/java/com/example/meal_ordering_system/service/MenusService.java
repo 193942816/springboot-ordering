@@ -6,5 +6,5 @@ import com.example.meal_ordering_system.entity.MenusExample;
 import java.util.List;
 
 public interface MenusService {
-    List<Menus> allmenus(MenusExample menusExample);
+    List<Menus> allmenus(Menus menus);
 }
