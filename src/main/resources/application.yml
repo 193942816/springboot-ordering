@@ -13,3 +13,4 @@ spring:
   web:
     resources:
       static-locations: classpath:/META-INF/resources
+
