@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -50,4 +51,14 @@ public class NoticeServiceImpl implements NoticeService {
 
         return vo;
     }
+
+
+    //查询所有
+    @Override
+    public List<Notice> queryAll(Notice notice) {
+        List<Notice> notices = noticeMapper.selectByExample(null);
+
+        return notices;
+    }
+
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("notice")
@@ -39,4 +40,21 @@ public class NoticeController {
 
         return view;
     }
+
+    /**
+     * @param notice
+     * @param request
+     * @return
+     */
+
+    @RequestMapping(value = "/queryAll", method = RequestMethod.GET)
+    public String queryAll(Notice notice, HttpServletRequest request) {
+
+        List<Notice> notices = noticeService.queryAll(notice);
+
+        request.setAttribute("notices", notices);
+
+        return "/admin/notice";
+    }
+
 }
