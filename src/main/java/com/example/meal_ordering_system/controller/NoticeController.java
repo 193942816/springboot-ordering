@@ -35,6 +35,7 @@ public class NoticeController {
         //跳转
         if (resultVo.getData() != null) {
             view.setViewName("/admin/notice");
+            this.queryAll(notice,request);
         } else {
             view.setViewName("/admin/notice_add");
         }
