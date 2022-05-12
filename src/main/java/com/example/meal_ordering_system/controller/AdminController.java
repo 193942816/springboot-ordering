@@ -64,4 +64,14 @@ public class AdminController {
         adminService.update(admin);
         return "admin/admin_update";
     }
+    /**
+     * 退出功能
+     * @param session
+     * @return
+     */
+    @RequestMapping("logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("admin_session");
+        return "/admin/index";
+    }
 }
