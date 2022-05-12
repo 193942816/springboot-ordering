@@ -201,7 +201,10 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+    <select id="selectById" resultType="com.example.meal_ordering_system.entity.Users">
+      select *from users where name=#{name} and pwd=#{pwd}
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
     update users
     <set>
       <if test="record.id != null">
