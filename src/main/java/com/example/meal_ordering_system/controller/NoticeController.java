@@ -114,5 +114,24 @@ public class NoticeController {
 
     }
 
+    /**
+     *
+     * @param id
+     * @param mv
+     * @param session
+     * @return
+     */
+    @RequestMapping(value = "/queryByIdtoQiantai", method = RequestMethod.GET)
+    public ModelAndView queryByIdtoQiantai(@RequestParam Integer id, ModelAndView mv,HttpSession session) {
+
+        Notice notice = noticeService.queryId(id);
+
+        session.setAttribute("notice",notice);
+
+
+        mv.setViewName("/qiantai/notice");
+
+        return mv;
+    }
 
 }
