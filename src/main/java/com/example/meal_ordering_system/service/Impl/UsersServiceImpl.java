@@ -47,5 +47,15 @@ public class UsersServiceImpl implements UsersService {
 
         return vo ;
     }
+    @Override
+    public Integer update(Users users) {
+        int num = usersMapper.updateByPrimaryKeySelective(users);
+        return num;
+    }
 
+    @Override
+    public Integer insert(Users users) {
+        return usersMapper.insertSelective(users);
+
+    }
 }

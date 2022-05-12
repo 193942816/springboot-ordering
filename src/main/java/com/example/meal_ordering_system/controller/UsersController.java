@@ -58,4 +58,40 @@ public class UsersController {
 
         return "/qiantai/index";
     }
+    /**
+     * 用户修改
+     * @param users
+     * @return
+     */
+    @RequestMapping(value = "update",method = RequestMethod.POST)
+    public String update( Users users){
+        Integer num= usersService.update(users);
+        if (num>0){
+            return "修改成功";
+        }
+        return "修改失败";
+    }
+    /**
+     * 用户添加功能
+     * @param users
+     * @return
+     */
+    @RequestMapping(value = "insert",method = RequestMethod.POST)
+    public String insert(Users users){
+        Integer num= usersService.insert(users);
+
+        if (num>0){
+            return "/qiantai/login";
+        }
+        return "/qiantai/reg";
+    }
+    /**
+     * 退出登录
+     * @return
+     */
+    @RequestMapping(value = "logout",method =RequestMethod.GET)
+    public  String logout(){
+
+        return "/qiantai/login";
+    }
 }
