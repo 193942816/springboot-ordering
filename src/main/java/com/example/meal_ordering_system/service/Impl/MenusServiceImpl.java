@@ -4,6 +4,7 @@ import com.example.meal_ordering_system.dao.MenusMapper;
 import com.example.meal_ordering_system.entity.Menus;
 import com.example.meal_ordering_system.entity.MenusExample;
 import com.example.meal_ordering_system.service.MenusService;
+import com.example.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +30,26 @@ public class MenusServiceImpl implements MenusService {
     @Override
     public Menus uptatetoPage(Integer id) {
         return menusMapper.selectByPrimaryKey(id);
+    }
+
+    //修改
+    @Override
+    public Integer update(Menus menus) {
+        return menusMapper.updateByPrimaryKeySelective(menus);
+
+    }
+    //删除
+    @Override
+    public ResultVo delete(Integer id) {
+        ResultVo resultVo = new ResultVo();
+        int rows = menusMapper.deleteByPrimaryKey(id);
+        if (rows > 0){
+            resultVo.setCode(200);
+
+        }else {
+            resultVo.setCode(-100);
+        }
+        return resultVo;
     }
 
 
