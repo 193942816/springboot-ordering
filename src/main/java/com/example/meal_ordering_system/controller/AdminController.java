@@ -13,9 +13,4 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ModelAndView login(){
-        ModelAndView mv = new ModelAndView("main");
-        return mv;
-    }
 }
