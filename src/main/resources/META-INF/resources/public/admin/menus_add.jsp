@@ -1,9 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.example.meal_ordering_system.entity.Types"%>
-<%@ page import="com.example.meal_ordering_system.dao.TypesDao" %>
+<%@ page import="com.example.meal_ordering_system.dao.TypesMapper" %>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page import="com.example.meal_ordering_system.service.TypesService" %>
-<%@ page import="com.example.meal_ordering_system.service.impl.TypesServiceImpl" %>
+<%@ page import="com.example.meal_ordering_system.service.Impl.TypesServiceImpl" %>
 <%@ page import="com.example.meal_ordering_system.controller.TypesController" %>
 <html>
 <head>

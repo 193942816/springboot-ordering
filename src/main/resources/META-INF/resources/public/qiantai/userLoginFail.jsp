@@ -11,6 +11,6 @@
 登入失败!
 ${message}
 <br>
-<a href="<%=path%>/public/qiantai/login.jsp/qiantai/js/login.jsp/login.jsp/qiantai/login.jsp" rel="external nofollow" >返回</a>
+<a href="<%=path%>/qiantai" rel="external nofollow" >返回</a>
 </body>
 </html>
