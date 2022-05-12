@@ -7,4 +7,8 @@ import java.util.List;
 
 public interface MenusService {
     List<Menus> allmenus(Menus menus);
+
+    Integer toAddPage(Menus menus);
+
+    Menus uptatetoPage(Integer id);
 }

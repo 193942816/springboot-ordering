@@ -20,4 +20,16 @@ public class MenusServiceImpl implements MenusService {
         List<Menus> menus1 = menusMapper.selectByExample(null);
         return menus1;
     }
+    //进入增加页
+    @Override
+    public Integer toAddPage(Menus menus) {
+        return menusMapper.insertSelective(menus);
+    }
+    //进入修改页
+    @Override
+    public Menus uptatetoPage(Integer id) {
+        return menusMapper.selectByPrimaryKey(id);
+    }
+
+
 }

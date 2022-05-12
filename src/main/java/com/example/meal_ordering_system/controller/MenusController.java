@@ -26,5 +26,17 @@ public class MenusController {
         session.setAttribute("list", menus1);
         return "/admin/menus";
     }
+    //进入菜品添加页
+    @RequestMapping(value = "/toAddPage", method = RequestMethod.GET)
+    public String toAddPage(Menus menus) {
 
+        return "/admin/menus_add";
+    }
+    //进入菜单修改页面
+    @RequestMapping(value = "toUpdatePage",method = RequestMethod.GET)
+    public String uptatetoPage(Integer id,HttpSession session) {
+        Menus menus = menusService.uptatetoPage(id);
+        session.setAttribute("menu", menus);
+        return "/admin/menus_update";
+    }
 }
