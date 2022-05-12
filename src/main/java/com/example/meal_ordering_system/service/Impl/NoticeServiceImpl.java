@@ -77,4 +77,12 @@ public class NoticeServiceImpl implements NoticeService {
 
         return noticeMapper.deleteByPrimaryKey(id);
     }
+
+
+    //根据id查询
+    @Override
+    public Notice queryId(Integer id) {
+
+        return noticeMapper.selectByPrimaryKey(id);
+    }
 }

@@ -96,4 +96,23 @@ public class NoticeController {
         return mv;
     }
 
+    /**
+     * @param id
+     * @param mv
+     * @return
+     */
+    @RequestMapping(value = "/queryById", method = RequestMethod.GET)
+    public ModelAndView queryId(@RequestParam Integer id, ModelAndView mv, HttpSession session) {
+
+        Notice notice = noticeService.queryId(id);
+
+        if (notice != null) {
+            session.setAttribute("notice", notice);
+            mv.setViewName("/admin/notice_update");
+        }
+        return mv;
+
+    }
+
+
 }
