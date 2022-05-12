@@ -76,4 +76,24 @@ public class NoticeController {
         return mv;
     }
 
+    /**
+     * @param id
+     * @param mv
+     * @param notice
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public ModelAndView delete(@RequestParam Integer id, ModelAndView mv, Notice notice, HttpServletRequest request) {
+
+        Integer affectedRows = noticeService.deleteId(id);
+
+        if (affectedRows > 0) {
+            this.queryAll(notice, request);
+            mv.setViewName("/admin/notice");
+        }
+
+        return mv;
+    }
+
 }

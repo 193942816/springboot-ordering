@@ -68,4 +68,13 @@ public class NoticeServiceImpl implements NoticeService {
 
         return noticeMapper.selectByExample(null);
     }
+
+
+    //根据id删除
+    @Override
+    public Integer deleteId(Integer id) {
+
+
+        return noticeMapper.deleteByPrimaryKey(id);
+    }
 }

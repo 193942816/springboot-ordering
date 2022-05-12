@@ -12,4 +12,6 @@ public interface NoticeService {
     List<Notice> queryAll(Notice notice);
 
     List<Notice> queryBytoQiantai(Notice notice);
+
+    Integer deleteId(Integer id);
 }
