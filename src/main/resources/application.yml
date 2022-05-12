@@ -14,3 +14,11 @@ spring:
     resources:
       static-locations: classpath:/META-INF/resources
 
+  servlet:
+    multipart:
+      # \u5F00\u542F\u6587\u4EF6\u4E0A\u4F20
+      enabled: true
+      # \u5355\u4E2A\u6587\u4EF6\u5927\u5C0F
+      max-file-size: 10MB
+      # \u6240\u6709\u6587\u4EF6\u5927\u5C0F
+      max-request-size: 100MB
