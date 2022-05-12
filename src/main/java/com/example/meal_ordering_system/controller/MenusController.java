@@ -1,12 +1,17 @@
 package com.example.meal_ordering_system.controller;
 
+import com.example.meal_ordering_system.entity.Menus;
 import com.example.meal_ordering_system.entity.MenusExample;
+import com.example.meal_ordering_system.entity.Types;
 import com.example.meal_ordering_system.service.MenusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("menus")
@@ -19,6 +24,12 @@ public class MenusController {
 //        menusService.allmenus(menusExample);
         ModelAndView mv = new ModelAndView("menus_add");
         return mv;
+    }
+
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
+    public ModelAndView insert(HttpSession session, ModelAndView view, Menus menus, Types types, MultipartFile img) {
+
+        return menusService.insert(session, menus,img, view,types);
     }
 
 }

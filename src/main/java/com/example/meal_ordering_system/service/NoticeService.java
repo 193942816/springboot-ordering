@@ -21,4 +21,6 @@ public interface NoticeService {
 
     ModelAndView update(Notice notice, ModelAndView mv, HttpSession session);
 
+
+
 }
