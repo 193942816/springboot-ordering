@@ -6,7 +6,9 @@ import com.example.meal_ordering_system.service.NoticeService;
 import com.example.meal_ordering_system.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -84,5 +86,40 @@ public class NoticeServiceImpl implements NoticeService {
     public Notice queryId(Integer id) {
 
         return noticeMapper.selectByPrimaryKey(id);
+    }
+
+
+    //修改
+    @Override
+    public ModelAndView update(Notice notice, ModelAndView mv, HttpSession session) {
+
+        //受影响的行数
+        int affectedRows = noticeMapper.updateByPrimaryKeySelective(notice);
+
+        if (affectedRows > 0) {
+
+            //获取日期时间格式
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+            String time = format.format(new Date());
+            //设置最新修改的时间
+            notice.setTimes(time);
+
+            //修改之后根据id查询修改的数据
+            Notice notices = noticeMapper.selectByPrimaryKey(notice.getId());
+
+            if (notices != null) {
+
+                List<Notice> list = noticeMapper.selectByExample(null);
+                //放到域对象中
+                session.setAttribute("notices", list);
+
+                mv.setViewName("/admin/notice");
+
+
+            }
+        }
+
+        return mv;
     }
 }

@@ -2,7 +2,9 @@ package com.example.meal_ordering_system.service;
 
 import com.example.meal_ordering_system.entity.Notice;
 import com.example.meal_ordering_system.vo.ResultVo;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public interface NoticeService {
@@ -16,4 +18,7 @@ public interface NoticeService {
     Integer deleteId(Integer id);
 
     Notice queryId(Integer id);
+
+    ModelAndView update(Notice notice, ModelAndView mv, HttpSession session);
+
 }

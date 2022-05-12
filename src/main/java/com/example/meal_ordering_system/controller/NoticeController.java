@@ -134,4 +134,16 @@ public class NoticeController {
         return mv;
     }
 
+    /**
+     *
+     * @param notice
+     * @param mv
+     * @param session
+     * @return
+     */
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public ModelAndView update(Notice notice,ModelAndView mv,HttpSession session){
+
+        return noticeService.update(notice,mv,session);
+    }
 }
