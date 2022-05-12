@@ -61,4 +61,11 @@ public class NoticeServiceImpl implements NoticeService {
         return notices;
     }
 
+
+    //查询所有并传递前台
+    @Override
+    public List<Notice> queryBytoQiantai(Notice notice) {
+
+        return noticeMapper.selectByExample(null);
+    }
 }

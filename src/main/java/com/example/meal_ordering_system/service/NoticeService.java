@@ -10,4 +10,6 @@ public interface NoticeService {
     ResultVo insert(String name, String content);
 
     List<Notice> queryAll(Notice notice);
+
+    List<Notice> queryBytoQiantai(Notice notice);
 }
