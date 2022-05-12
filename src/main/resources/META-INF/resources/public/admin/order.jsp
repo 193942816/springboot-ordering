@@ -1,7 +1,7 @@
 <%@page import="com.example.meal_ordering_system.entity.Orders "%>
 <%@page import="java.util.*"%>
 <%@ page import="com.example.meal_ordering_system.service.OrdersService" %>
-<%@ page import="com.example.meal_ordering_system.service.impl.OrdersServiceImpl" %>
+<%@ page import="com.example.meal_ordering_system.service.Impl.OrdersServiceImpl" %>
 <%@ page import="com.example.meal_ordering_system.entity.Users" %>
 <%@ page import="com.example.meal_ordering_system.entity.Menus" %>
 <%@ page import="com.example.meal_ordering_system.entity.Pages" %>

@@ -44,35 +44,35 @@
 									<td class="line_table" align="center" width="20%"><span class="left_bt2">数量</span></td>
 									<td class="line_table" align="center" width="20%"><span class="left_bt2">&nbsp;&nbsp;</span></td>
 								</tr>
-									<%
-				    float sum1 = 0.0f;
-					int sum2 = 0;
-					List<ShoppingCart> shoppingcar = (List<ShoppingCart>) session.getAttribute("shoppingcar");
-					if (shoppingcar!= null) {
-						for (int i = 0; i < shoppingcar.size(); i++) {
-							ShoppingCart sc=shoppingcar.get(i);
-							sum1 = sum1+sc.getPrice()*sc.getSums();
-							sum2 = sum2 +sc.getSums();
-				  %>
-								<tr>
-									<td class="line_table" align="center" width="40%" ><span class="left_txt"><%=sc.getName() %></span></td>
-									<td class="line_table" align="center" width="20%"><span class="left_txt"><%=sc.getPrice() %></span></td>
-									<td class="line_table" align="center" width="20%"><span class="left_txt"><%=sc.getSums()%></span></td>
-									<td class="line_table" align="center" width="20%"><a href="/orders/order_shoppingcardel?del=<%=i%>">取消</a></td>
-								</tr>
-									<%
-						}
-		              }
+<%--									<%--%>
+<%--				    float sum1 = 0.0f;--%>
+<%--					int sum2 = 0;--%>
+<%--					List<ShoppingCart> shoppingcar = (List<ShoppingCart>) session.getAttribute("shoppingcar");--%>
+<%--					if (shoppingcar!= null) {--%>
+<%--						for (int i = 0; i < shoppingcar.size(); i++) {--%>
+<%--							ShoppingCart sc=shoppingcar.get(i);--%>
+<%--							sum1 = sum1+sc.getPrice()*sc.getSums();--%>
+<%--							sum2 = sum2 +sc.getSums();--%>
+<%--				  %>--%>
+<%--								<tr>--%>
+<%--									<td class="line_table" align="center" width="40%" ><span class="left_txt"><%=sc.getName() %></span></td>--%>
+<%--									<td class="line_table" align="center" width="20%"><span class="left_txt"><%=sc.getPrice() %></span></td>--%>
+<%--									<td class="line_table" align="center" width="20%"><span class="left_txt"><%=sc.getSums()%></span></td>--%>
+<%--									<td class="line_table" align="center" width="20%"><a href="/orders/order_shoppingcardel?del=<%=i%>">取消</a></td>--%>
+<%--								</tr>--%>
+<%--									<%--%>
+<%--						}--%>
+<%--		              }--%>
 
-					 %>
+<%--					 %>--%>
 
 								<tr   >
 									<td class="line_table" align="center"  colspan="4" >
 										<span class="left_bt2">小&nbsp;&nbsp;计：</span>&nbsp;
-										<span  style="color:#ff0000;"><%=sum1 %></span>&nbsp;&nbsp;
+<%--										<span  style="color:#ff0000;"><%=sum1 %></span>&nbsp;&nbsp;--%>
 										<span class="left_bt2">元</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<span class="left_bt2">共：</span>&nbsp;
-										<span  style="color:#ff0000;"><%=sum2 %></span>&nbsp;
+<%--										<span  style="color:#ff0000;"><%=sum2 %></span>&nbsp;--%>
 										<span class="left_bt2">份</span>
 									</td>
 

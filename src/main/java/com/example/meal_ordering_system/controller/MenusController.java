@@ -4,11 +4,17 @@ import com.example.meal_ordering_system.entity.Menus;
 import com.example.meal_ordering_system.entity.MenusExample;
 import com.example.meal_ordering_system.entity.Types;
 import com.example.meal_ordering_system.service.MenusService;
-import com.example.vo.ResultVo;
+import com.example.meal_ordering_system.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 
 @Controller
@@ -44,5 +50,32 @@ public class MenusController {
             this.allMenus(menus,session);
             return "/admin/menus";
 
+        }
+        return "/admin/menus_update";
+    }
+    /**
+     * 菜单添加
+     * 文件上传
+     *
+     * @param menus
+     * @return
+     */
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
+    public ModelAndView insert(HttpSession session, ModelAndView view, Menus menus, MultipartFile img) {
 
+        return menusService.insert(session, menus, img, view);
+    }
+    /*
+     * 后台菜单删除
+     * 慎用无弹框提示
+     * */
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView menusDel(Integer id, ModelAndView mv, HttpSession session, Menus menus) {
+        ResultVo resultVo = menusService.delete(id);
+        this.allMenus(menus, session);
+        mv.addObject("resultVo", resultVo);
+        mv.setViewName("/admin/menus");
+        return mv;
+    }
 }

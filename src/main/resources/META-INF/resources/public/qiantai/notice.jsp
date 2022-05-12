@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</tr>
 		<tr>
 		  <td  align="center"  >
-			 <a href="<c:url value="/menus/qiantai/allMenus"/>" target="_self">
+			 <a href="<c:url value="/menus/allMenus"/>" target="_self">
 			 <span style="font-family: Helvetica, sans-serif;font-size: 16px;">
 			     返回
 			 </span></a>

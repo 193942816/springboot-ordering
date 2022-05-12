@@ -1,7 +1,7 @@
 <%@page import="com.example.meal_ordering_system.entity.Menus"%>
 <%@ page language="java" import="java.util.*,java.text.*" pageEncoding="utf-8"%>
 <%@ page import="com.example.meal_ordering_system.service.MenusService" %>
-<%@ page import="com.example.meal_ordering_system.service.impl.MenusServiceImpl" %>
+<%@ page import="com.example.meal_ordering_system.service.Impl.MenusServiceImpl" %>
 
 <html>
 <title>菜品展示</title>

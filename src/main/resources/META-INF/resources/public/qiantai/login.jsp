@@ -75,7 +75,7 @@
                     <tr>
                       <td height="40"><input name="act" type="hidden" id="act" value="memberlogin" /></td>
                       <td height="40" ><input name="imageField" type="image" src="${pageContext.request.contextPath}/public/qiantai/images/denglu.gif" border="0" />
-                        <a href="reg.jsp" style="padding-left:1px"><img src="${pageContext.request.contextPath}/public/qiantai/images/zhuce.gif" alt="" width="40" height="19" border="0" /></a></td>
+                        <a href="/public/qiantai/reg.jsp" style="padding-left:1px"><img src="${pageContext.request.contextPath}/public/qiantai/images/zhuce.gif" alt="" width="40" height="19" border="0" /></a></td>
                     </tr>
                   </table>
                 </form>
@@ -83,7 +83,7 @@
               <div style="width:290px;padding:20px;float:right;text-align:left;border:1px #f59d5e solid;background-color:#ffffff;">
                 <ul style="margin:0px;padding:0px">
                   <li style=" list-style-type: none;line-height:30px; background:url(images/cateitems.gif) left no-repeat;padding-left:20px"> 如果您已经是会员，请在左侧登录 </li>
-                  <li style="list-style-type: none;line-height:30px; background:url(images/cateitems.gif) left no-repeat;padding-left:20px"> 如果您还没有注册会员，<a href="reg.jsp" target="_self"><font color="#FF6600">点这里注册新会员</font></a></li>
+                  <li style="list-style-type: none;line-height:30px; background:url(images/cateitems.gif) left no-repeat;padding-left:20px"> 如果您还没有注册会员，<a href="public/qiantai/reg.jsp" target="_self"><font color="#FF6600">点这里注册新会员</font></a></li>
                   <li style="list-style-type: none;line-height:30px; background:url(images/cateitems.gif) left no-repeat;padding-left:20px"> 如果您忘记了密码， <a href="../member/lostpass.php" ><font color="#99CC00">点这里重设一个密码</font></a></li>
                 </ul>
               </div>
