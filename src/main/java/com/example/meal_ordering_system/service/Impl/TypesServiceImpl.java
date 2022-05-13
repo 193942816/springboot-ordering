@@ -7,6 +7,7 @@ import com.example.meal_ordering_system.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Service
@@ -18,7 +19,7 @@ public class TypesServiceImpl implements TypesService {
     public ResultVo getAll(Integer id, String name) {
         ResultVo resultVo=new ResultVo();
         List<Types> types = typesMapper.selectByExample(null);
-        System.out.println(types);
+
         resultVo.setCode(200);
         resultVo.setData(types);
         resultVo.setMessage("全部菜品");
@@ -27,11 +28,17 @@ public class TypesServiceImpl implements TypesService {
     }
     //删除菜单
     @Override
-    public ResultVo delete(Integer id) {
-        ResultVo resultVo=null;
+    public String delete(Integer id, HttpSession session) {
+
         int affectedRows = typesMapper.deleteByPrimaryKey(id);
 
-        return resultVo;
+        if (affectedRows>0){
+            List<Types> typeList = typesMapper.selectByExample(null);
+
+            session.setAttribute("type",typeList);
+        }
+
+        return "admin/type";
     }
     //添加菜单
     @Override
@@ -42,6 +49,7 @@ public class TypesServiceImpl implements TypesService {
         //判断是否插入成功
         if (affectedRows>0){
             resultVo.setData(affectedRows);
+
         }
         return resultVo;
     }
