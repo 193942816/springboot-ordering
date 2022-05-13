@@ -38,7 +38,7 @@ public class MenusServiceImpl implements MenusService {
 
     @Override
     public ModelAndView insert(HttpSession session, Menus menus, MultipartFile img, ModelAndView view) {
-        String path = "D:\\sen\\idearWorkspace\\项目\\springboot-ordering\\target\\classes\\META-INF\\resources\\public\\img";
+        String path = "D:\\IdeaWorkSpace\\项目\\springboot-ordering\\target\\classes\\META-INF\\resources\\public\\img";
         if (img != null && !img.isEmpty()) {
             File pathFile = new File(path);
 

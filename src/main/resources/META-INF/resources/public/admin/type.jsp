@@ -46,7 +46,7 @@
 								<td class="line_table" align="center" width="20%"></td>
 							</tr>
 
-							<c:forEach items="${types}" var="t">
+							<c:forEach items="${type}" var="t">
 							<tr>
 								<td class="line_table" align="center" width="30%"><span
 									class="left_txt">${t.id}</span></td>
