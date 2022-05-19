@@ -18,4 +18,11 @@ public class OrdersServiceImpl implements OrdersService {
         List<Orders> orders1 = ordersMapper.selectByExample(null);
         return orders1;
     }
+
+    @Override
+    public Integer addshoppingcar(Integer id) {
+
+        return null;
+    }
+
 }

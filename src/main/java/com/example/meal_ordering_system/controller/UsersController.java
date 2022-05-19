@@ -1,6 +1,8 @@
 package com.example.meal_ordering_system.controller;
 
+import com.example.meal_ordering_system.entity.ShoppingCart;
 import com.example.meal_ordering_system.entity.Users;
+import com.example.meal_ordering_system.service.ShoppingCartService;
 import com.example.meal_ordering_system.service.UsersService;
 import com.example.meal_ordering_system.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * @author lihao
@@ -23,6 +26,8 @@ import javax.servlet.http.HttpSession;
 public class UsersController {
     @Autowired
     private UsersService usersService;
+    @Autowired
+    private ShoppingCartService shoppingCartService;
 
     /**
      * 用户登录
@@ -39,13 +44,16 @@ public class UsersController {
                         HttpServletResponse response,
                         HttpServletRequest request
     ) {
-        usersService.login(users.getName(), users.getPwd());
-
         ResultVo resultVo = usersService.login(users.getName(), users.getPwd());
         if (resultVo.getCode() == 0) {
             //登录失败
             return "/qiantai/userLoginFail";
         } else {
+            Users user = (Users) resultVo.getUserInfo();
+            List<ShoppingCart> carts = shoppingCartService.getCart(user.getId());
+
+            session.setAttribute("shoppingcar", carts);
+
             System.out.println(resultVo);
             Cookie cookie = new Cookie("JSESSIONID", session.getId());
             cookie.setMaxAge(30 * 60);
@@ -90,8 +98,8 @@ public class UsersController {
      * @return
      */
     @RequestMapping(value = "logout",method =RequestMethod.GET)
-    public  String logout(){
-
+    public  String logout(HttpSession session){
+        session.removeAttribute("admin_session");
         return "/qiantai/login";
     }
 }
